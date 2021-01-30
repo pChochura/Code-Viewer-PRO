@@ -10,20 +10,20 @@ import com.pointlessapps.codeviewerpro.viewModels.ViewModelExample
 
 class ActivityExample : AppCompatActivity() {
 
-    companion object {
-        const val KEY_EXAMPLE = "example"
-    }
+	companion object {
+		const val KEY_EXAMPLE = "example"
+	}
 
-    @Suppress("CAST_NEVER_SUCCEEDS")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityExampleBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+	@Suppress("CAST_NEVER_SUCCEEDS")
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		val binding = ActivityExampleBinding.inflate(layoutInflater)
+		setContentView(binding.root)
 
-        val example = intent.getParcelableExtra<Example>(KEY_EXAMPLE) ?: return
-        val viewModel = ViewModelProvider(this, Utils.getViewModelFactory(this, binding, example))
-            .get(ViewModelExample::class.java)
+		val example = intent.getParcelableExtra<Example>(KEY_EXAMPLE) ?: return
+		val viewModel = ViewModelProvider(this, Utils.getViewModelFactory(this, binding, example))
+			.get(ViewModelExample::class.java)
 
-        viewModel.prepareSnippetsList()
-    }
+		viewModel.prepareSnippetsList()
+	}
 }

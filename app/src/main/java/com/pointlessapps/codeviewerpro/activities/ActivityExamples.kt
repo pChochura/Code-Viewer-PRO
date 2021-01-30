@@ -10,20 +10,20 @@ import com.pointlessapps.codeviewerpro.viewModels.ViewModelExamples
 
 class ActivityExamples : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityExamplesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		val binding = ActivityExamplesBinding.inflate(layoutInflater)
+		setContentView(binding.root)
 
-        val viewModel = ViewModelProvider(this, Utils.getViewModelFactory(this, binding))
-            .get(ViewModelExamples::class.java)
+		val viewModel = ViewModelProvider(this, Utils.getViewModelFactory(this, binding))
+			.get(ViewModelExamples::class.java)
 
-        viewModel.prepareExamplesList()
-        viewModel.onShowExampleListener = {
-            startActivity(
-                Intent(this, ActivityExample::class.java)
-                    .putExtra(ActivityExample.KEY_EXAMPLE, it)
-            )
-        }
-    }
+		viewModel.prepareExamplesList()
+		viewModel.onShowExampleListener = {
+			startActivity(
+				Intent(this, ActivityExample::class.java)
+					.putExtra(ActivityExample.KEY_EXAMPLE, it)
+			)
+		}
+	}
 }

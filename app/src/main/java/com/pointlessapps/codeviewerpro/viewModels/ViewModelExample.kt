@@ -9,16 +9,16 @@ import com.pointlessapps.codeviewerpro.databinding.ActivityExampleBinding
 import com.pointlessapps.codeviewerpro.models.Example
 
 class ViewModelExample(
-    private val activity: Activity,
-    private val binding: ActivityExampleBinding,
-    private val example: Example
+	private val activity: Activity,
+	private val binding: ActivityExampleBinding,
+	private val example: Example
 ) : AndroidViewModel(activity.application) {
 
-    fun prepareSnippetsList() {
-        binding.listSnippets.apply {
-            layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-            adapter = AdapterExampleSnippets(example.codeSnippets)
-            setItemViewCacheSize(example.codeSnippets.size)
-        }
-    }
+	fun prepareSnippetsList() {
+		binding.listSnippets.apply {
+			layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+			adapter = AdapterExampleSnippets(example.codeSnippets)
+			setItemViewCacheSize(example.codeSnippets.size)
+		}
+	}
 }

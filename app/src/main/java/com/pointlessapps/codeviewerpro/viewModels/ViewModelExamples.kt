@@ -10,20 +10,20 @@ import com.pointlessapps.codeviewerpro.models.Example
 import com.pointlessapps.codeviewerpro.utils.ExamplesData
 
 class ViewModelExamples(private val activity: Activity, private val binding: ActivityExamplesBinding) :
-    AndroidViewModel(activity.application) {
+	AndroidViewModel(activity.application) {
 
-    var onShowExampleListener: ((Example) -> Unit)? = null
+	var onShowExampleListener: ((Example) -> Unit)? = null
 
-    private val data = ExamplesData.get(activity)
+	private val data = ExamplesData.get(activity)
 
-    fun prepareExamplesList() {
-        binding.listExamples.apply {
-            layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-            adapter = AdapterExample(data).apply {
-                onClickListener = {
-                    onShowExampleListener?.invoke(data[it])
-                }
-            }
-        }
-    }
+	fun prepareExamplesList() {
+		binding.listExamples.apply {
+			layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+			adapter = AdapterExample(data).apply {
+				onClickListener = {
+					onShowExampleListener?.invoke(data[it])
+				}
+			}
+		}
+	}
 }
